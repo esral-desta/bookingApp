@@ -5,6 +5,11 @@ import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Layout from "./Layout";
+import Registration from "./pages/Registration";
+import axios from "axios";
+
+axios.defaults.baseURL  = "http://localhost:8000"
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -12,8 +17,9 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout/>}>
-        <Route index element={<Index/>}/>
+        <Route path="/" element={<Index/>}/>
         <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Registration/>} />
       </Route>
 
     </Routes>
