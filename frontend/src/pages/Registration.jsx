@@ -9,11 +9,13 @@ function Registration() {
 
   const registerUser = (e)=>{
     e.preventDefault()
-    axios.get("/register",{
+    console.log("sent");
+    axios.post("/register",{
         name,
         email,
         password
     })
+
   }
 
   return (
@@ -26,6 +28,7 @@ function Registration() {
             placeholder="John Doe"
             value={name}
             onChange={(e) => {
+              console.log(e.target.value);
               setName(e.target.value);
             }}
           />
@@ -34,7 +37,7 @@ function Registration() {
             placeholder="your@email.com"
             value={email}
             onChange={(e) => {
-              setName(e.target.value);
+              setEmail(e.target.value);
             }}
           />
           <input
@@ -42,10 +45,11 @@ function Registration() {
             placeholder="password"
             value={password}
             onChange={(e) => {
-              setName(e.target.value);
+              setPassword(e.target.value);
             }}
           />
-          <button className="primary">Register</button>
+          <button type="submit" className="primary">Register</button>
+            <button type=""></button>
           <div className="text-center py-2 text-gray-500">
             Already a member?{" "}
             <Link className="underline text-black" to={"/login"}>
